@@ -52,7 +52,7 @@ Random Forest achieved the highest overall accuracy.
 
 ### Correlation Heatmap
 
-![Correlation Heatmap](images/correlation_heatmap.png)
+![Correlation Heatmap](images/correlation_heatmap..png)
 
 ### Confusion Matrix
 
