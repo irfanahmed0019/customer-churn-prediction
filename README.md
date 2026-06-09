@@ -4,7 +4,7 @@
 
 This project predicts whether a telecom customer is likely to churn (leave the service) using Machine Learning classification algorithms.
 
-The project includes data preprocessing, exploratory data analysis (EDA), feature encoding, model training, evaluation, and comparison of multiple algorithms.
+The project covers data preprocessing, exploratory data analysis (EDA), feature encoding, model training, evaluation, and comparison of multiple machine learning models.
 
 ---
 
@@ -28,9 +28,7 @@ The project includes data preprocessing, exploratory data analysis (EDA), featur
 
 ---
 
-## Machine Learning Models
-
-The following models were implemented and evaluated:
+## Machine Learning Models Evaluated
 
 | Model | Accuracy |
 |---------|---------|
@@ -38,9 +36,11 @@ The following models were implemented and evaluated:
 | KNN | 72.4% |
 | Decision Tree | 63.5% |
 | Random Forest | 74.3% |
-| SVM | 65.4% |
+| SVM (Linear) | 71.7% |
+| SVM (RBF) | 65.4% |
+| Naive Bayes | 72.3% |
 
-Random Forest achieved the highest overall accuracy.
+Random Forest achieved the highest overall accuracy among all tested models.
 
 ---
 
@@ -54,51 +54,85 @@ Random Forest achieved the highest overall accuracy.
 
 ![Correlation Heatmap](images/correlation_heatmap.png)
 
-### Confusion Matrix
-
-![Confusion Matrix](images/confusion_matrix.png)
-
 ### Model Accuracy Comparison
 
 ![Model Comparison](images/model_comparison.png)
+
+### Random Forest Confusion Matrix
+
+![Random Forest Confusion Matrix](images/random_forest_confusion_matrix.png)
 
 ---
 
 ## Key Findings
 
 - Most customers did not churn.
-- The dataset is imbalanced, with significantly more non-churn customers than churn customers.
-- Monthly Charges and Total Charges show a strong positive correlation.
-- Random Forest provided the best overall performance among the tested models.
+- The dataset is imbalanced, containing significantly more non-churn customers than churn customers.
+- Monthly Charges and Total Charges showed a strong positive correlation.
+- Random Forest achieved the highest overall accuracy.
+- Different models produced different churn detection performance despite similar accuracy values.
+
+---
+
+## Model Insights
+
+### Random Forest
+
+- Accuracy: 74.3%
+- Best overall performing model.
+- Produced the highest classification accuracy among all tested algorithms.
+
+### Naive Bayes
+
+- Accuracy: 72.3%
+- Fast and computationally efficient.
+- Struggled to identify churn customers effectively.
+
+### SVM (Linear)
+
+- Accuracy: 71.7%
+- Failed to identify churn customers.
+- Predicted nearly all customers as non-churn due to class imbalance.
+
+### SVM (RBF)
+
+- Accuracy: 65.4%
+- Lower overall accuracy.
+- Better at detecting churn customers compared to Linear SVM.
+- Achieved approximately 60% recall for churn prediction.
 
 ---
 
 ## Limitations
 
-Although Random Forest achieved 74.3% accuracy, the confusion matrix shows that the model struggled to identify churn customers.
+Although Random Forest achieved the highest accuracy, customer churn prediction remains challenging due to class imbalance in the dataset.
 
-Confusion Matrix Results:
+Key challenges include:
 
-- True Negatives: 2104
-- False Positives: 46
-- False Negatives: 783
-- True Positives: 67
+- Fewer churn customers compared to non-churn customers.
+- Models may achieve high accuracy while still missing many churn cases.
+- Accuracy alone is not sufficient for evaluating churn prediction performance.
 
-This indicates that the model predicts non-churn customers much better than churn customers.
-
-The primary reason is class imbalance, where the number of non-churn customers is much higher than churn customers.
-
-Future improvements could include:
+Future improvements:
 
 - SMOTE oversampling
 - Class weighting
 - Hyperparameter tuning
-- Advanced ensemble methods
+- Feature engineering
+- Ensemble optimization
+
+---
+
+## Conclusion
+
+This project demonstrates the complete machine learning workflow from data preprocessing and exploratory data analysis to model evaluation and comparison.
+
+The results show that the highest accuracy does not always indicate the best business outcome, highlighting the importance of precision, recall, and F1-score when evaluating customer churn prediction models.
 
 ---
 
 ## Author
 
-Irfan Ahmed
+**Irfan Ahammad J**
 
 AI/ML & EDA Internship Project – CADPOINT
